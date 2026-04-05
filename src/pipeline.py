@@ -14,41 +14,42 @@ import joblib
 import pandas as pd
 import numpy as np
 
-from src.config import MODEL_DIR
+from src.config import WEIGHTS_DIR, PREPROCESS_DIR
 from src.utils import load_model
 
 
 class TerraFluxPipeline:
-    def __init__(self, model_dir: str | Path = MODEL_DIR):
+    def __init__(self, weights_dir: str | Path = WEIGHTS_DIR, prep_dir: str | Path = PREPROCESS_DIR):
         """
-        Initialize the unified pipeline, loading all three pre-trained modules.
+        Initialize the unified pipeline, loading all three pre-trained modules. 
         If a module is not found, a warning is raised and self.{module} is None.
         """
-        self.model_dir = Path(model_dir)
-        
+        self.weights_dir = Path(weights_dir)
+        self.prep_dir = Path(prep_dir)
+
         # Module 1
-        soc_model_path = self.model_dir / "module1_soc_model.pkl"
-        soc_scaler_path = self.model_dir / "esa_scaler.pkl"
-        soc_pca_path = self.model_dir / "esa_pca.pkl"
+        soc_model_path = self.weights_dir / "esa_soc_model.pkl"
+        soc_scaler_path = self.prep_dir / "esa_scaler.pkl"
+        soc_pca_path = self.prep_dir / "esa_pca.pkl"
 
         self.soc_model = load_model(soc_model_path) if soc_model_path.exists() else None
         self.soc_scaler = load_model(soc_scaler_path) if soc_scaler_path.exists() else None
         self.soc_pca = load_model(soc_pca_path) if soc_pca_path.exists() else None
 
         # Module 2
-        risk_model_path = self.model_dir / "module2_risk_model.pkl"
-        risk_scaler_path = self.model_dir / "rural_scaler.pkl"
+        risk_model_path = self.weights_dir / "m2_rural_risk_model.pkl"
+        risk_scaler_path = self.prep_dir / "rural_scaler.pkl"
         
         self.risk_model = load_model(risk_model_path) if risk_model_path.exists() else None
         self.risk_scaler = load_model(risk_scaler_path) if risk_scaler_path.exists() else None
 
         # Module 3
-        benchmarks_path = self.model_dir / "module3_benchmarks.json"
-        if benchmarks_path.exists():
-            with open(benchmarks_path, "r", encoding="utf-8") as f:
-                self.benchmarks = json.load(f)
-        else:
-            self.benchmarks = None
+        benchmarks_path = self.weights_dir / "m3_srdb_regression_model.pkl"
+        features_path = self.prep_dir / "m3_srdb_features.pkl"
+        
+        self.srdb_model = load_model(benchmarks_path) if benchmarks_path.exists() else None
+        self.srdb_features = load_model(features_path) if features_path.exists() else None
+        self.benchmarks = None  # TODO: Load actual benchmarks if available
 
 
     def predict_soc(self, features: dict | pd.DataFrame) -> float | list[float]:

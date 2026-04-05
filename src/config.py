@@ -17,11 +17,15 @@ RAW_DATA_DIR  = DATA_DIR / "raw"
 PROC_DATA_DIR = DATA_DIR / "processed"
 
 MODEL_DIR   = PROJECT_ROOT / "models"
+PREPROCESS_DIR = MODEL_DIR / "preprocessors"
+WEIGHTS_DIR    = MODEL_DIR / "weights"
 OUTPUT_DIR  = PROJECT_ROOT / "outputs"
 
 # Ensure output directories exist
 PROC_DATA_DIR.mkdir(parents=True, exist_ok=True)
 MODEL_DIR.mkdir(parents=True, exist_ok=True)
+PREPROCESS_DIR.mkdir(parents=True, exist_ok=True)
+WEIGHTS_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # --------------------------------------------------------------------------
