@@ -7,6 +7,7 @@ serialising artifacts. Used by all three modules and notebooks.
 
 import json
 import pickle
+import joblib
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Union
 
@@ -265,11 +266,10 @@ def plot_pca_variance(
 # --------------------------------------------------------------------------
 
 def save_model(model: object, path: Union[str, Path]) -> None:
-    """Pickle a model to disk."""
+    """Save a model to disk."""
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "wb") as f:
-        pickle.dump(model, f)
+    joblib.dump(model, path)
     print(f"Model saved -> {path}")
 
 
@@ -278,8 +278,7 @@ def load_model(path: Union[str, Path]) -> object:
     path = Path(path)
     if not path.exists():
         raise FileNotFoundError(f"Model file not found: {path}")
-    with open(path, "rb") as f:
-        model = pickle.load(f)
+    model = joblib.load(path)
     print(f"Model loaded <- {path}")
     return model
 
