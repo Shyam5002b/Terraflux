@@ -1,8 +1,18 @@
+# Core data science
 pandas
 numpy
+
+# Machine learning
 scikit-learn
 xgboost
+
+# Visualisation
 matplotlib
 seaborn
+
+# Jupyter
 jupyter
 ipython
+
+# Utilities
+joblib

@@ -45,7 +45,7 @@ Terraflux/
 │   │   ├── esa_processor.py          # ESA train/test processing
 │   │   ├── rural_processor.py        # Rural carbon processing
 │   │   └── srdb_processor.py         # SRDB temporal processing
-│   ├── models/                       # [NEW] Model training & evaluation
+│   ├── model_training/               # [NEW] Model training & evaluation (code)
 │   │   ├── __init__.py
 │   │   ├── module1_soc_regressor.py  # ESA SOC regression
 │   │   ├── module2_risk_classifier.py# Rural emission classifier
@@ -129,7 +129,7 @@ Processing steps:
 
 ### 3. Module 1 — Remote Sensing SOC Regressor
 
-#### [NEW] [module1_soc_regressor.py](file:///c:/Users/justi/Downloads/ML%20project%20data/Terraflux/src/models/module1_soc_regressor.py)
+#### [NEW] [module1_soc_regressor.py](file:///c:/Users/justi/Downloads/ML%20project%20data/Terraflux/src/model_training/module1_soc_regressor.py)
 
 **Task:** Predict `logoc_d.f` (log soil organic carbon) from satellite features.
 
@@ -149,7 +149,7 @@ Interactive notebook: runs the module1 pipeline with visualizations — learning
 
 ### 4. Module 2 — Human Risk Classifier
 
-#### [NEW] [module2_risk_classifier.py](file:///c:/Users/justi/Downloads/ML%20project%20data/Terraflux/src/models/module2_risk_classifier.py)
+#### [NEW] [module2_risk_classifier.py](file:///c:/Users/justi/Downloads/ML%20project%20data/Terraflux/src/model_training/module2_risk_classifier.py)
 
 **Task:** Classify regions into Low/Medium/High emission risk from agricultural features.
 
@@ -167,7 +167,7 @@ Interactive notebook: confusion matrix heatmap, ROC curves per class, feature im
 
 ### 5. Module 3 — SRDB Temporal Benchmark
 
-#### [NEW] [module3_temporal.py](file:///c:/Users/justi/Downloads/ML%20project%20data/Terraflux/src/models/module3_temporal.py)
+#### [NEW] [module3_temporal.py](file:///c:/Users/justi/Downloads/ML%20project%20data/Terraflux/src/model_training/module3_temporal.py)
 
 **Task:** Analyze seasonal & decadal trends in soil respiration globally.
 
