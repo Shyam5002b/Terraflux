@@ -1,0 +1,59 @@
+{
+  "baseline_cv_weighted_f1": 0.5614250940175454,
+  "selected_feature_count": 8,
+  "total_feature_count": 314,
+  "max_allowed_f1_drop": 0.01,
+  "reduction_curve": [
+    {
+      "n_features": 8.0,
+      "cv_weighted_f1": 0.5518556233754065
+    },
+    {
+      "n_features": 12.0,
+      "cv_weighted_f1": 0.5531685955630916
+    },
+    {
+      "n_features": 16.0,
+      "cv_weighted_f1": 0.5647119775990421
+    },
+    {
+      "n_features": 24.0,
+      "cv_weighted_f1": 0.5589901947990327
+    },
+    {
+      "n_features": 32.0,
+      "cv_weighted_f1": 0.5566164644486935
+    },
+    {
+      "n_features": 48.0,
+      "cv_weighted_f1": 0.5596055136259108
+    },
+    {
+      "n_features": 64.0,
+      "cv_weighted_f1": 0.5622722805708378
+    },
+    {
+      "n_features": 96.0,
+      "cv_weighted_f1": 0.5611853416368419
+    },
+    {
+      "n_features": 128.0,
+      "cv_weighted_f1": 0.5631075164417219
+    },
+    {
+      "n_features": 314.0,
+      "cv_weighted_f1": 0.5618769190120246
+    }
+  ],
+  "holdout_accuracy": 0.5716666666666667,
+  "selected_features": [
+    "Livestock_Total",
+    "Renewable_Energy_Fraction",
+    "Renewable_Energy_kWh",
+    "Livestock_Cows",
+    "Fertilizer_Usage_kg",
+    "Crop_Area_ha",
+    "Region_R0063",
+    "Region_R0149"
+  ]
+}

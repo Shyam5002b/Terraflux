@@ -139,3 +139,16 @@ SRDB_KEY_COLS = [
 # 7. Cross-Validation
 # --------------------------------------------------------------------------
 CV_FOLDS = 5
+
+# --------------------------------------------------------------------------
+# 8. Model Optimization / Feature Reduction
+# --------------------------------------------------------------------------
+HYPERPARAM_SEARCH_ITERS = 25
+
+# Maximum tolerated relative regression loss after reduction.
+# Example: 0.03 means reduced model RMSE can be up to 3% worse than best.
+MAX_REGRESSION_RMSE_LOSS = 0.03
+
+# Maximum tolerated absolute weighted-F1 drop after reduction.
+# Example: 0.01 means reduced model can be up to 0.01 below best weighted-F1.
+MAX_CLASSIFICATION_F1_DROP = 0.01

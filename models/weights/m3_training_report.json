@@ -1,0 +1,50 @@
+{
+  "baseline_cv_rmse_log": 0.3701561233569879,
+  "max_allowed_rmse_loss_ratio": 0.03,
+  "selected_feature_count": 16,
+  "total_feature_count": 27,
+  "selected_features": [
+    "Ecosystem_type_Wetland",
+    "Ecosystem_type_Desert",
+    "Ecosystem_type_Turfgrass",
+    "MAP",
+    "MAT",
+    "Biome_Mediterranean",
+    "Latitude",
+    "Longitude",
+    "Biome_Subtropical",
+    "Ecosystem_type_Urban",
+    "Ecosystem_type_Shrubland",
+    "Biome_Tropical",
+    "Study_midyear",
+    "Ecosystem_type_Grassland",
+    "Ecosystem_type_Urban lawn",
+    "Biome_Temperate"
+  ],
+  "reduction_curve": [
+    {
+      "n_features": 5,
+      "cv_rmse_log": 0.49636770588505197
+    },
+    {
+      "n_features": 8,
+      "cv_rmse_log": 0.3953857835981814
+    },
+    {
+      "n_features": 12,
+      "cv_rmse_log": 0.39135620259316634
+    },
+    {
+      "n_features": 16,
+      "cv_rmse_log": 0.37385549688558234
+    },
+    {
+      "n_features": 24,
+      "cv_rmse_log": 0.36882898689046545
+    },
+    {
+      "n_features": 27,
+      "cv_rmse_log": 0.3686710032398744
+    }
+  ]
+}

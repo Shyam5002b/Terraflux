@@ -99,6 +99,16 @@ class TerraFluxPipeline:
         # 4. Scale & PCA
         X_scaled = self.soc_scaler.transform(df)
         X_pca = self.soc_pca.transform(X_scaled)
+
+        # Support reduced PCA feature sets if the SOC model was retrained with fewer components.
+        if hasattr(self.soc_model, "n_features_in_"):
+            expected_n = int(self.soc_model.n_features_in_)
+            if X_pca.shape[1] < expected_n:
+                raise ValueError(
+                    f"SOC PCA output has {X_pca.shape[1]} features but model expects {expected_n}."
+                )
+            if X_pca.shape[1] > expected_n:
+                X_pca = X_pca[:, :expected_n]
         
         return self.soc_model.predict(X_pca).tolist()  # type: ignore
 
